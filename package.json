@@ -1,0 +1,54 @@
+{
+  "name": "mclauncher",
+  "version": "1.0.0",
+  "description": "Minecraft Launcher",
+  "main": "mclauncher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "eleabi": "electron --abi",
+    "elep": "electron-packager .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . MCLauncher --overwrite --asar=true --electron-version=11.4.2 --platform=win32 --arch=ia32 --icon=./icon.ico --prune=true --out=releases --version-string.CompanyName=Mojang --version-string.FileDescription=MCLauncher --version-string.ProductName=\"Minecraft Launcher\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "author": "Tsunami#6271",
+  "license": "ISC",
+  "dependencies": {
+    "@electron/remote": "^1.1.0",
+    "iohook": "^0.9.0",
+    "path": "^0.12.7",
+    "robotjs": "^0.6.0"
+  },
+  "devDependencies": {
+    "electron": "^11.4.2",
+    "electron-builder": "^22.10.5",
+    "electron-packager": "^15.2.0",
+    "electron-rebuild": "^2.3.5"
+  },
+  "iohook": {
+    "targets": [
+      "node-88",
+      "electron-85"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  },
+  "build": {
+    "appId": "com.mojang.minecraftlauncher",
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    }
+  }
+}
