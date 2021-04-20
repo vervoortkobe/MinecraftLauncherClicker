@@ -1,5 +1,5 @@
 # MinecraftLauncherClicker
-Ok so, how to set it up:
+## Installation Guide:
 
 1. Download NodeJS runtime to run it:  
 https://nodejs.org/en/  
@@ -20,12 +20,12 @@ If you left the Minecraft Launcher open just ctrl + r so it reloads.
 
 THIS REPOSITORY DOESN'T CONTAIN THE node_modules FOLDER!!!  
 node_modules is required to run the app, because it contains all the depencies the app uses to run.  
-(You can't upload node_modules to GitHub, instead go download them here: https://www.mediafire.com/file/rg04y05umcvnexu/node_modules.zip/file )  
-OR you can install the depencies yourself (might fail): run the install.bat file, when it's done, run the rebuild.bat file.  
+(You can't upload node_modules to GitHub, instead go download them here: https://www.mediafire.com/file/lze40fibm5a8irq/node_modules.zip/file)  
+OR you can install the Depencies yourself (might fail): run the install.bat file, when it's done, run the rebuild.bat file.  
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////  
 
-Extra Info:  
+## Extra Info:  
 • Main file: mclauncher.js  
 • Minecraft Launcher file: mclauncher.html  
 • Autoclicker file: main.html  
@@ -33,3 +33,5 @@ Extra Info:
 • Config file: config.json  
 • Run file: run.bat  
 • Main Run file: run.vbs  
+• Install required Depencies: install.bat  
+• Rebuild: rebuild.bat  
