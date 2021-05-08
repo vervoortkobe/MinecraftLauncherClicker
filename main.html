@@ -20,18 +20,31 @@
 <!-- CONTENT -->
     <div id="content" class="content">
       <div id="border" class="border">
-        <div class="slidecontainer">
-          <input type="range" min="1" max="20" value="10" class="slider" id="slider">
-          <p id="p1" class="p1"><b>» CPS: <span id="cps" class="cps"></span></b></p>
-        </div>
-        <p id="p2" class="p2"><b>» Keybind: <span id="keybind" class="keybind"></span></b></p>
-        <p id="p3" class="p3">You can change some settings in config.json! Use ctrl + r to reload.</p>
         <label id="switch" class="switch">
           <input type="checkbox" id="checkbox" class="checkbox" onchange="toggle()">
           <span id="roundsslider" class="sslider round"></span>
         </label>
+        <div id="clicker" class="clicker" onclick="clicker()">Clicker</div>
+        <div id="settings" class="settings" onclick="settings()">Settings</div>
+        <img id="discord" class="discord" src="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.png" onclick="discord()">
+
+<!-- CLICKER CONTENT -->
+        <div id="clickercontent" class="clickercontent">
+          <br>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="20" value="10" class="slider" id="slider">
+          </div>
+          <p id="p1" class="p1"><b>» CPS: <span id="cps" class="cps"></span></b></p>
+          <p id="p2" class="p2"><b>» Keybind: <span id="keybind" class="keybind"></span></b></p>
+        </div>
+
+<!-- SETTINGS CONTENT -->
+      <div id="settingscontent" class="settingscontent" style="display: none;">
+        <p id="p3" class="p3"><b>» Set Keybind: <input type="text" id="setkeybind" class="setkeybind" style="font-weight: bold;"></span></b></p>
+        <p id="p4" class="p4"><b>» Set Color: <span style="color: #fff;">#</span><input type="text" id="setcolor" class="setcolor" style="font-weight: bold;"></span></b></p>
+        <div id="selfdestruct" class="selfdestruct" onclick="selfdestruct()"><b>SelfDestruct</b></div>
       </div>
-    </div>
+
     <script src="./renderer.js"></script>
   </body>
 </html>
@@ -61,7 +74,7 @@
     margin-top: 19%;
   }
   .loadingvalue {
-    animation: load 3s normal forwards;
+    animation: load 1s normal forwards;
     border-radius: 100px;
     background: #7289DA;
     height: 16px;
@@ -78,12 +91,47 @@
   .border {
     border: 2px solid #7289DA;
     border-radius: 5px;
+    height: 165px;
     padding: 17px;
+  }
+  .clicker {
+    border: 2px solid #7289DA;
+    border-radius: 5px;
+    padding: 4px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 60px;
+    text-align: center;
+    margin-left: 30%;
+    cursor: pointer;
+    margin-top: -7.5%;
+    font-weight: bold;
+    user-select: none;
+  }
+  .settings {
+    border: 2px solid #7289DA;
+    border-radius: 5px;
+    padding: 4px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 60px;
+    text-align: center;
+    margin-left: 50%;
+    cursor: pointer;
+    margin-top: -7.1%;
+    user-select: none;
+  }
+  .discord {
+    width: 40px;
+    margin-left: 82%;
+    cursor: pointer;
+    top: 11.5%;
+    position: absolute;
+    outline: none;
   }
   .switch {
     position: absolute;
-    margin-left: 22.8%;
-    top: 6.1%;
+    margin-left: -20%;
     cursor: pointer;
   }
   .background {
@@ -96,24 +144,76 @@
   }
   .p1 {
     color: #7289DA;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+    user-select: none;
   }
   .cps {
-    color: #fff;
+    user-select: none;
     background-color: #2C2F33;
+    border: 3px solid #2C2F33;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 36px;
+    font-size: 16px;
+    outline: none;
   }
   .p2 {
     color: #7289DA;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+    user-select: none;
   }
   .keybind {
-    color: #fff;
+    user-select: none;
     background-color: #2C2F33;
+    border: 3px solid #2C2F33;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 36px;
+    font-size: 16px;
+    outline: none;
   }
   .p3 {
+    color: #7289DA;
+    font-family: "Roboto", sans-serif;
+    user-select: none;
+  }
+  .setkeybind {
+    background-color: #2C2F33;
+    border: 3px solid #2C2F33;
+    border-radius: 5px;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
+    font-family: "Roboto", sans-serif;
+    width: 39px;
+    font-size: 16px;
+    outline: none;
+  }
+  .p4 {
+    color: #7289DA;
+    font-family: "Roboto", sans-serif;
+    user-select: none;
+  }
+  .setcolor {
+    background-color: #2C2F33;
+    border: 3px solid #2C2F33;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 48px;
+    font-size: 16px;
+    outline: none;
+  }
+  .selfdestruct {
+    border: 2px solid #7289DA;
+    border-radius: 5px;
+    padding: 4px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
   }
   .slider {
     -webkit-appearance: none;
@@ -255,41 +355,40 @@
   const config = require("./config.json");
   const robotjs = require("robotjs");
   const iohook = require("iohook");
-  const state = {
-    working: false
-  }
+  const state = { working: false };
 
   window.onload = function() {
     document.getElementById("content").style.display = "none";
+    document.getElementById("setkeybind").value = config.keybind;
+    document.getElementById("setcolor").value = config.color;
+    document.getElementById("discord").setAttribute("draggable", false);
 
-    if(config.color && config.color !== undefined && config.color !== "" && config.color.length === 7 && config.color.startsWith("#") || config.color === "chroma") {
-      if(config.color.startsWith("#")) {
-        document.getElementById("preloadborder").style.borderColor = config.color;
-        document.getElementById("loadingvalue").style.background = config.color;
-        document.getElementById("border").style.borderColor = config.color;
-        document.getElementById("p1").style.color = config.color;
-        document.getElementById("p2").style.color = config.color;
-        document.getElementById("slider").style.background = config.color;
-      }
-      if(config.color === "chroma") {
-        document.getElementById("preloadborder").style.animation = "chroma_bordercolor 5s linear 1s infinite";
-        document.getElementById("loadingvalue").style.animation = "chroma_background 5s linear 1s infinite, load 3s normal forwards";
-        document.getElementById("border").style.animation = "chroma_bordercolor 5s linear 1s infinite";
-        document.getElementById("p1").style.animation = "chroma_color 5s linear 1s infinite";
-        document.getElementById("p2").style.animation = "chroma_color 5s linear 1s infinite";
-        document.getElementById("slider").style.animation = "chroma_background 5s linear 1s infinite";
-      }
+    if(config.color && config.color !== undefined && config.color !== "" && config.color.length === 6 && parseInt(config.color, 16)) {
+      document.getElementById("preloadborder").style.borderColor = `#${config.color}`;
+      document.getElementById("loadingvalue").style.background = `#${config.color}`;
+      document.getElementById("border").style.borderColor = `#${config.color}`;
+      document.getElementById("clicker").style.borderColor = `#${config.color}`;
+      document.getElementById("settings").style.borderColor = `#${config.color}`;
+      document.getElementById("discord").style.borderColor = `#${config.color}`;
+      document.getElementById("p1").style.color = `#${config.color}`;
+      document.getElementById("p2").style.color = `#${config.color}`;
+      document.getElementById("slider").style.background = `#${config.color}`;
+      document.getElementById("p3").style.color = `#${config.color}`;
+      document.getElementById("p4").style.color = `#${config.color}`;
+      document.getElementById("selfdestruct").style.borderColor = `#${config.color}`;
     }
     setTimeout(() => {
       document.getElementById("preload").style.display = "none";
       document.getElementById("content").style.display = "block";
-    }, 5000);
+    }, 2000);
   }
   
   const slider = document.getElementById("slider");
   const cps = document.getElementById("cps");
   const keybind = document.getElementById("keybind");
   const checkbox = document.getElementById("checkbox");
+  const setkeybind = document.getElementById("setkeybind");
+  const setcolor = document.getElementById("setcolor");
 
   slider.oninput = function() {
     cps.innerHTML = slider.value;
@@ -304,7 +403,7 @@
   if(config.status === false) checkbox.checked = false;
   if(config.status === true) checkbox.checked = true;
 
-//INPUT CHANGE
+//CPS INPUT CHANGE
   slider.onchange = function() {
     cps.innerHTML = this.value;
 
@@ -316,8 +415,63 @@
     location.reload();
   }
 
-//FN TOGGLE
+//SETKEYBIND INPUT CHANGE
+  setkeybind.onchange = function() {
+    setkeybind.value = this.value;
 
+    config.keybind = this.value;
+    fs.writeFile("./config.json", JSON.stringify(config), function(err) {
+      if(err) return console.log(err);
+    });
+
+    location.reload();
+  }
+
+//SETCOLOR INPUT CHANGE
+  setcolor.onchange = function() {
+    setcolor.value = this.value;
+
+    config.color = this.value;
+    fs.writeFile("./config.json", JSON.stringify(config), function(err) {
+      if(err) return console.log(err);
+    });
+
+    location.reload();
+  }
+
+//FN CLICKER
+  function clicker() {
+    document.getElementById("settingscontent").style.display = "none";
+    document.getElementById("clickercontent").style.display = "block";
+    document.getElementById("clicker").style.fontWeight = "bold";
+    document.getElementById("settings").style.fontWeight = "normal";
+  }
+
+//FN SETTINGS
+  function settings() {
+    document.getElementById("clickercontent").style.display = "none";
+    document.getElementById("settingscontent").style.display = "block";
+    document.getElementById("settings").style.fontWeight = "bold";
+    document.getElementById("clicker").style.fontWeight = "normal";
+  }
+
+//FN DISCORD
+  function discord() {
+    const { shell } = window.require("electron");
+    shell.openExternal("https://discord.com/invite/dAKqw7U");
+  }
+
+//FN SELFDESTRUCT
+  function selfdestruct() {
+    config.selfdestruct = true;
+    fs.writeFile("./config.json", JSON.stringify(config), function(err) {
+      if(err) return console.log(err);
+    });
+
+    window.close();
+  }
+
+//FN TOGGLE
   function toggle() {
 
 //FN STARTCLICK
