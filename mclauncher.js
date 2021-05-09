@@ -4,7 +4,7 @@ const path = require("path");
 function createWindow () {
   const icon = new Tray("./icon.png");
   const parentWin = new BrowserWindow({
-    title: "Mincraft Launcher",
+    title: "Minecraft Launcher",
     width: 1920,
     height: 1080,
     fullscreenable: true,
