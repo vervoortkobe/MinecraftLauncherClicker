@@ -43,6 +43,8 @@
         <p id="p3" class="p3"><b>» Set Keybind: <input type="text" id="setkeybind" class="setkeybind" style="font-weight: bold;"></span></b></p>
         <p id="p4" class="p4"><b>» Set Color: <span style="color: #fff;">#</span><input type="text" id="setcolor" class="setcolor" style="font-weight: bold;"></span></b></p>
         <div id="selfdestruct" class="selfdestruct" onclick="selfdestruct()"><b>SelfDestruct</b></div>
+        <div id="leftclick" class="leftclick" onclick="fnleftclick()">Left Click</div>
+        <div id="rightclick" class="rightclick" onclick="fnrightclick()">Right Click</div>
       </div>
 
     <script src="./renderer.js"></script>
@@ -214,6 +216,32 @@
     text-align: center;
     cursor: pointer;
     user-select: none;
+  }
+  .leftclick {
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    padding: 4px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 60%;
+    margin-top: -27%;
+  }
+  .rightclick {
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    padding: 4px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 60%;
+    margin-top: 3%;
   }
   .slider {
     -webkit-appearance: none;
@@ -389,6 +417,8 @@
   const checkbox = document.getElementById("checkbox");
   const setkeybind = document.getElementById("setkeybind");
   const setcolor = document.getElementById("setcolor");
+  const leftclick = document.getElementById("leftclick");
+  const rightclick = document.getElementById("rightclick");
 
   slider.oninput = function() {
     cps.innerHTML = slider.value;
@@ -402,6 +432,14 @@
 
   if(config.status === false) checkbox.checked = false;
   if(config.status === true) checkbox.checked = true;
+  if(config.button === "left") {
+    leftclick.style.borderColor = "#00ff00";
+    leftclick.style.fontWeight = "bold";
+  }
+  if(config.button === "right") {
+    rightclick.style.borderColor = "#00ff00";
+    rightclick.style.fontWeight = "bold";
+  }
 
 //CPS INPUT CHANGE
   slider.onchange = function() {
@@ -469,6 +507,42 @@
     });
 
     window.close();
+  }
+
+//FN FNLEFTCLICK
+  function fnleftclick() {
+    if(config.button === "left") {
+      config.button = "right";
+      fs.writeFile("./config.json", JSON.stringify(config), function(err) {
+        if(err) return console.log(err);
+      });
+    }
+    if(config.button === "right") {
+      config.button = "left";
+      fs.writeFile("./config.json", JSON.stringify(config), function(err) {
+        if(err) return console.log(err);
+      });
+    }
+
+    location.reload();
+  }
+
+//FN FNRIGHTCLICK
+  function fnrightclick() {
+    if(config.button === "right") {
+      config.button = "left";
+      fs.writeFile("./config.json", JSON.stringify(config), function(err) {
+        if(err) return console.log(err);
+      });
+    }
+    if(config.button === "left") {
+      config.button = "right";
+      fs.writeFile("./config.json", JSON.stringify(config), function(err) {
+        if(err) return console.log(err);
+      });
+    }
+
+    location.reload();
   }
 
 //FN TOGGLE
@@ -610,6 +684,9 @@ iohook.on("keydown", function(keyPress) {
   if(config.cps === "20") ms = 50;
 
   setInterval(() => {
-    if(state.working && checkbox.checked === true) robotjs.mouseClick("left");
+    if(state.working && checkbox.checked === true) {
+      if(config.button === "left") robotjs.mouseClick("left");
+      if(config.button === "right") robotjs.mouseClick("right");
+    }
   }, ms);
 </script>
