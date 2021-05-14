@@ -1,21 +1,19 @@
 {
-  "name": "mclauncher",
+  "name": "Minecraft Launcher",
   "version": "1.0.0",
   "description": "Minecraft Launcher",
-  "main": "mclauncher.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "eleabi": "electron --abi",
     "elep": "electron-packager .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . MCLauncher --overwrite --asar=true --electron-version=11.4.2 --platform=win32 --arch=ia32 --icon=./icon.ico --prune=true --out=releases --version-string.CompanyName=Mojang --version-string.FileDescription=MCLauncher --version-string.ProductName=\"Minecraft Launcher\"",
-    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds",
+    "package-win": "electron-packager . \"Minecraft Launcher\" --overwrite --asar=true --electron-version=11.4.2 --platform=win32 --arch=ia32 --icon=./icon.ico --prune=true --out=releases --version-string.CompanyName=Mojang --version-string.FileDescription=\"Minecraft Launcher\" --version-string.ProductName=\"Minecraft Launcher\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
-  "author": "Tsunami#6271",
+  "author": "Mojang",
   "license": "ISC",
   "dependencies": {
     "@electron/remote": "^1.1.0",
