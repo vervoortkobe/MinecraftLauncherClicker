@@ -20,8 +20,7 @@ If you left the Minecraft Launcher open just ctrl + r so it reloads.
 
 THIS REPOSITORY DOESN'T CONTAIN THE node_modules FOLDER!!!  
 node_modules is required to run the app, because it contains all the depencies the app uses to run.  
-(You can't upload node_modules to GitHub, instead go download them here: https://www.mediafire.com/file/lze40fibm5a8irq/node_modules.zip/file)  
-OR you can install the Depencies yourself (might fail): run the install.bat file, when it's done, run the rebuild.bat file.  
+How to install the Depencies: run the install.bat file, when it's done, run the rebuild.bat file.  
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////  
 
