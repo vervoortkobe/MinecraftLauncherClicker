@@ -26,8 +26,8 @@ OR you can install the Depencies yourself (might fail): run the install.bat file
 ////////////////////////////////////////////////////////////////////////////////////////////////////  
 
 ## Extra Info:  
-• Main file: mclauncher.js  
-• Minecraft Launcher file: mclauncher.html  
+• Main file: index.js  
+• Minecraft Launcher file: index.html  
 • Autoclicker file: main.html  
 • Minecraft Game file: minecraft.html  
 • Config file: config.json  
