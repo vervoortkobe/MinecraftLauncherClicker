@@ -21,7 +21,7 @@ function createWindow () {
     }
   });
 
-  parentWin.loadFile("mclauncher.html");
+  parentWin.loadFile("index.html");
   parentWin.maximize();
 }
 
