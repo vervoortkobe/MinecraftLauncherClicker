@@ -3,7 +3,7 @@
 
 1. Download NodeJS runtime to run it:  
 https://nodejs.org/en/  
-(current version 15.14.0)  
+(tested: node -v: 17.1.0, npm -v: 8.3.0, Windows 10/11)  
 
 2. Download the code:  
 Just click on the green button "Code" and then Download ZIP.  
