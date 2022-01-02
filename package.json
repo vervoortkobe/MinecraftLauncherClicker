@@ -1,5 +1,5 @@
 {
-  "name": "Minecraft Launcher",
+  "name": "minecraftlauncher",
   "version": "1.0.0",
   "description": "Minecraft Launcher",
   "main": "index.js",
@@ -8,8 +8,8 @@
     "start": "electron .",
     "eleabi": "electron --abi",
     "elep": "electron-packager .",
-    "package-win": "electron-packager . \"Minecraft Launcher\" --overwrite --asar=true --electron-version=11.4.2 --platform=win32 --arch=ia32 --icon=./icon.ico --prune=true --out=releases --version-string.CompanyName=Mojang --version-string.FileDescription=\"Minecraft Launcher\" --version-string.ProductName=\"Minecraft Launcher\"",
-    "pack": "electron-builder --dir",
+    "package-win": "electron-packager . \"Minecraft Launcher\" --overwrite --asar=true --electron-version=11.4.2 --platform=win32 --arch=x64 --icon=./icon.ico --prune=true --out=releases --version-string.CompanyName=Mojang --version-string.FileDescription=\"Minecraft Launcher\" --version-string.ProductName=\"Minecraft Launcher\"",
+    "builder": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
