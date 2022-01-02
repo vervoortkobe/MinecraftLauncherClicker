@@ -1,4 +1,7 @@
 # MinecraftLauncherClicker
+A fake copy of the Minecraft Launcher, with a hidden autoclicker, using ElectronJS.  
+Bypasses Process Hacker, LastActivityView, Echo and other screenshare tools.  
+
 ## Installation Guide:
 
 1. Download NodeJS runtime to run it:  
