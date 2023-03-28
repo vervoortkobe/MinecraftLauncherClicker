@@ -22,8 +22,9 @@ If you left the Minecraft Launcher open just ctrl + r so it reloads.
 • The clicker works with a keybind, not with a mouse, I'd recommend setting the keybind to your forward control, so when you press that key, you go forward and autoclick. (change the keybind in the config.json)  
 
 THIS REPOSITORY DOESN'T CONTAIN THE node_modules FOLDER!!!  
-node_modules is required to run the app, because it contains all the depencies the app uses to run.  
-How to install the Depencies: run the install.bat file, when it's done, run the rebuild.bat file.  
+node_modules is required to run the app, because it contains all the dependencies the app uses to run.  
+How to install the Depencies: run the install.bat file, when it's done, run the rebuild.bat file. 
+Or download them from (MediaFire)[https://www.mediafire.com/file/c1makpolz88w9z1/node_modules.zip/file]. 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////  
 
