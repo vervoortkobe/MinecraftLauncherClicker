@@ -5,7 +5,7 @@ Bypasses Process Hacker, LastActivityView, Echo and other screenshare tools.
 ## Installation Guide:
 
 1. Download NodeJS runtime to run it:  
-https://nodejs.org/en/  
+https://nodejs.org/dist/v17.1.0/node-v17.1.0-x64.msi  
 (tested: node -v: 17.1.0, npm -v: 8.3.0, Windows 10/11)  
 
 2. Download the code:  
