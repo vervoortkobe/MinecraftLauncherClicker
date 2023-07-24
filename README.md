@@ -1,6 +1,7 @@
 # MinecraftLauncherClicker
 A fake copy of the Minecraft Launcher, with a hidden autoclicker, using ElectronJS.  
 Bypasses Process Hacker, LastActivityView, Echo and other screenshare tools.  
+[Minecraft Launcher Autoclicker: NodeJS Coding, Progress #5/5 + Screenshare pcaclient Bypass?! on YouTube](https://www.youtube.com/watch?v=Gt3s3eXhQqM)  
 
 ## Installation Guide:
 
