@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minecraft 1.8.9</title>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <img src="./img/mojang.png" id="mojang" class="mojang">
+
+    <script src="../renderer.js"></script>
+  </body>
+</html>
+
+<style>
+  .body {
+    overflow: hidden;
+    outline: none;
+  }
+  .mojang {
+    width: 93%;
+    height: 93%;
+    margin-left: 3%;
+  }
+</style>
+
+<script>
+  document.getElementById("mojang").setAttribute("draggable", false);
+</script>

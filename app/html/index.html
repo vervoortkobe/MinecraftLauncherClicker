@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minecraft Launcher</title>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="opacity" class="opacity">
+      <img src="./img/background.png" id="background" class="background">
+      <img src="./img/sidebar.png" id="sidebar" class="sidebar" onclick="alert()">
+      <img src="./play.png" id="play" class="play" onclick="alert()">
+      <img src="./img/installations.png" id="installations" class="installations" onclick="alert()">
+      <img src="./img/skins.png" id="skins" class="skins" onclick="alert()">
+      <img src="./img/patchnotes.png" id="patchnotes" class="patchnotes" onclick="main()">
+      <img src="./img/playbutton.png" id="playbutton" class="playbutton" onclick="launchmc()">
+      <img src="./img/version.png" id="version" class="version" onclick="alert()">
+      <img src="./img/settings.png" id="settings" class="settings" onclick="alert()">
+    </div>
+
+    <img src="./img/alert.png" id="alert" class="alert">
+    <img src="./img/closealert.png" id="closealert" class="closealert" onclick="closealert()">
+
+    <script src="../renderer.js"></script>
+  </body>
+</html>
+
+<style>
+  .body {
+    overflow: hidden;
+    outline: none;
+  }
+  .background {
+    width: 100%;
+    height: 100%;
+  }
+  .sidebar {
+    position: fixed;
+    margin-left: -99.2%;
+    top: 0.8%;
+    cursor: pointer;
+  }
+  .play {
+    position: absolute;
+    margin-left: -88.8%;
+    top: 6.3%;
+    cursor: pointer;
+  }
+  .installations {
+    position: absolute;
+    margin-left: -85.7%;
+    top: 6.3%;
+    cursor: pointer;
+  }
+  .skins {
+    position: absolute;
+    margin-left: -79.8%;
+    top: 6.3%;
+    cursor: pointer;
+  }
+  .patchnotes {
+    position: absolute;
+    margin-left: -76.7%;
+    top: 6.1%;
+    cursor: pointer;
+  }
+  .playbutton {
+    position: absolute;
+    margin-left: -51.1%;
+    top: 70%;
+    cursor: pointer;
+  }
+  .version {
+    position: absolute;
+    margin-left: -89.6%;
+    top: 71.5%;
+    cursor: pointer;
+  }
+  .settings {
+    position: fixed;
+    margin-left: -99.2%;
+    top: 95%;
+    cursor: pointer;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #262626;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #515151;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5c5c5c;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #686868;
+  }
+  .alert {
+    display: none;
+    position: fixed;
+    top: 360px;
+    left: 680px;
+  }
+  .closealert {
+    display: none;
+    position: fixed;
+    top: 565px;
+    left: 917px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  document.getElementById("background").setAttribute("draggable", false);
+  document.getElementById("sidebar").setAttribute("draggable", false);
+  document.getElementById("play").setAttribute("draggable", false);
+  document.getElementById("installations").setAttribute("draggable", false);
+  document.getElementById("skins").setAttribute("draggable", false);
+  document.getElementById("patchnotes").setAttribute("draggable", false);
+  document.getElementById("playbutton").setAttribute("draggable", false);
+  document.getElementById("version").setAttribute("draggable", false);
+  document.getElementById("settings").setAttribute("draggable", false);
+  document.getElementById("alert").setAttribute("draggable", false);
+  document.getElementById("closealert").setAttribute("draggable", false);
+
+  const remote = require("electron").remote;
+  const path = require("path");
+  const config = require("../../config.json");
+
+  function main() {
+    if(config.selfdestruct === false) {
+      const Tray = remote.Tray;
+      const icon = new Tray("./img/headed.png");
+      const BrowserWindow = remote.BrowserWindow;
+      const childWin = new BrowserWindow({
+        title: "Autoclicker",
+        height: 248,
+        width: 500,
+        fullscreenable: false,
+        autoHideMenuBar: true,
+        icon: "./img/headed.png",
+        backgroundColor: "#000000",
+        alwaysOnTop: true,
+        resizable: false,
+        minimizable: true,
+        maximizable: false,
+        webPreferences: {
+          preload: path.join(__dirname, "../preload.js"),
+          nodeIntegration: true,
+          nodeIntegrationInWorker: true,
+          contextIsolation: false,
+          enableRemoteModule: true,
+          devTools: false
+        }
+      });
+
+      childWin.loadFile("main.html");
+    }
+    if(config.selfdestruct === true) alert();
+  }
+
+  function launchmc() {
+    setTimeout(() => {
+      const Tray = remote.Tray;
+      const icon = new Tray("./img/craftingtable.png");
+      const BrowserWindow = remote.BrowserWindow;
+      const childWin = new BrowserWindow({
+        title: "Mincraft 1.8.9",
+        height: 505,
+        width: 875,
+        fullscreenable: false,
+        autoHideMenuBar: true,
+        icon: "./img/craftingtable.png",
+        backgroundColor: "#fff",
+        alwaysOnTop: false,
+        resizable: true,
+        minimizable: true,
+        maximizable: true,
+        webPreferences: {
+          preload: path.join(__dirname, "../preload.js"),
+          nodeIntegration: true,
+          nodeIntegrationInWorker: true,
+          contextIsolation: false,
+          enableRemoteModule: true,
+          devTools: false
+        }
+      });
+
+      childWin.loadFile("minecraft.html");
+
+      setTimeout(() => {
+        childWin.close();
+
+        const opacity = document.getElementById("opacity");
+        const alert = document.getElementById("alert");
+        const closealert = document.getElementById("closealert");
+        opacity.style.opacity = "0.2";
+        alert.style.display = "block";
+        closealert.style.display = "block";
+      }, 5000);
+    }, 1000);
+  }
+
+  function alert() {
+    setTimeout(() => {
+      const opacity = document.getElementById("opacity");
+      const alert = document.getElementById("alert");
+      const closealert = document.getElementById("closealert");
+      opacity.style.opacity = "0.2";
+      alert.style.display = "block";
+      closealert.style.display = "block";
+    }, 1000);
+  }
+
+  function closealert() {
+    const opacity = document.getElementById("opacity");
+    const alert = document.getElementById("alert");
+    const closealert = document.getElementById("closealert");
+    opacity.style.opacity = "1";
+    alert.style.display = "none";
+    closealert.style.display = "none";
+  }
+</script>
