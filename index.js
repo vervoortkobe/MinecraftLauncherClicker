@@ -2,14 +2,14 @@ const { app, BrowserWindow, Tray } = require("electron");
 const path = require("path");
 
 function createWindow () {
-  const icon = new Tray("./icon.png");
+  const icon = new Tray("./img/icon.png");
   const parentWin = new BrowserWindow({
     title: "Minecraft Launcher",
     width: 1920,
     height: 1080,
     fullscreenable: true,
     autoHideMenuBar: true,
-    icon: "./icon.png",
+    icon: "./img/icon.png",
     backgroundColor: "#262626",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),

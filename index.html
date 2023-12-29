@@ -9,19 +9,19 @@
   </head>
   <body>
     <div id="opacity" class="opacity">
-      <img src="./background.png" id="background" class="background">
-      <img src="./sidebar.png" id="sidebar" class="sidebar" onclick="alert()">
+      <img src="./img/background.png" id="background" class="background">
+      <img src="./img/sidebar.png" id="sidebar" class="sidebar" onclick="alert()">
       <img src="./play.png" id="play" class="play" onclick="alert()">
-      <img src="./installations.png" id="installations" class="installations" onclick="alert()">
-      <img src="./skins.png" id="skins" class="skins" onclick="alert()">
-      <img src="./patchnotes.png" id="patchnotes" class="patchnotes" onclick="main()">
-      <img src="./playbutton.png" id="playbutton" class="playbutton" onclick="launchmc()">
-      <img src="./version.png" id="version" class="version" onclick="alert()">
-      <img src="./settings.png" id="settings" class="settings" onclick="alert()">
+      <img src="./img/installations.png" id="installations" class="installations" onclick="alert()">
+      <img src="./img/skins.png" id="skins" class="skins" onclick="alert()">
+      <img src="./img/patchnotes.png" id="patchnotes" class="patchnotes" onclick="main()">
+      <img src="./img/playbutton.png" id="playbutton" class="playbutton" onclick="launchmc()">
+      <img src="./img/version.png" id="version" class="version" onclick="alert()">
+      <img src="./img/settings.png" id="settings" class="settings" onclick="alert()">
     </div>
 
-    <img src="./alert.png" id="alert" class="alert">
-    <img src="./closealert.png" id="closealert" class="closealert" onclick="closealert()">
+    <img src="./img/alert.png" id="alert" class="alert">
+    <img src="./img/closealert.png" id="closealert" class="closealert" onclick="closealert()">
 
     <script src="./renderer.js"></script>
   </body>
@@ -134,7 +134,7 @@
   function main() {
     if(config.selfdestruct === false) {
       const Tray = remote.Tray;
-      const icon = new Tray("./headed.png");
+      const icon = new Tray("./img/headed.png");
       const BrowserWindow = remote.BrowserWindow;
       const childWin = new BrowserWindow({
         title: "Autoclicker",
@@ -142,7 +142,7 @@
         width: 500,
         fullscreenable: false,
         autoHideMenuBar: true,
-        icon: "./headed.png",
+        icon: "./img/headed.png",
         backgroundColor: "#000000",
         alwaysOnTop: true,
         resizable: false,
@@ -166,7 +166,7 @@
   function launchmc() {
     setTimeout(() => {
       const Tray = remote.Tray;
-      const icon = new Tray("./craftingtable.png");
+      const icon = new Tray("./img/craftingtable.png");
       const BrowserWindow = remote.BrowserWindow;
       const childWin = new BrowserWindow({
         title: "Mincraft 1.8.9",
@@ -174,7 +174,7 @@
         width: 875,
         fullscreenable: false,
         autoHideMenuBar: true,
-        icon: "./craftingtable.png",
+        icon: "./img/craftingtable.png",
         backgroundColor: "#fff",
         alwaysOnTop: false,
         resizable: true,
